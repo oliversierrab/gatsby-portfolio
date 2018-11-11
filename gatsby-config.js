@@ -5,6 +5,25 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        baseUrl: `oliversierra.alemotion.co/wp`,
+        protocol: `http`,
+        hostingWPCOM: false,
+        useACF: false,
+        verboseOutput: true,
+        includedRoutes: [
+          "/*/*/categories",
+          "/*/*/posts",
+          "/*/*/pages",
+          "/*/*/media",
+          "/*/*/tags",
+          "/*/*/taxonomies",
+          "/*/*/users",
+        ],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
